@@ -19,9 +19,9 @@ public class TempRestController {
     private final TempQueryService tempQueryService;
 
     @GetMapping("/test")
-    public ResponseDto<TempResponse.TempTestDTO> testAPI(){
+    public ApiResponse<TempResponse.TempTestDTO> testAPI(){
 
-        return ResponseDto.onSuccess(TempConverter.toTempTestDTO(), Code.OK);
+        return ApiResponse.onSuccess(TempConverter.toTempTestDTO());
     }
 
     @GetMapping("/exception")
