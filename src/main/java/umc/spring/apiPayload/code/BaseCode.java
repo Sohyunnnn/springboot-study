@@ -2,7 +2,7 @@ package umc.spring.apiPayload.code;
 
 public interface BaseCode {
 
-    Reason getReason();
+    ReasonDTO getReason();
 
-    Reason getReasonHttpStatus();
+    ReasonDTO getReasonHttpStatus();
 }
