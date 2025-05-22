@@ -47,12 +47,21 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok:1.18.22'
 
 
-	implementation 'org.springdoc:springdoc-openapi-ui:1.6.9'
-	implementation 'org.springdoc:springdoc-openapi-data-rest:1.6.9'
+//	implementation 'org.springdoc:springdoc-openapi-ui:1.6.9'
+//	implementation 'org.springdoc:springdoc-openapi-data-rest:1.6.9'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0' //스웨거
+
+	implementation 'org.springframework.boot:spring-boot-starter-validation' //디비 존재 검증
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+
+
 }
 
 sourceSets {
