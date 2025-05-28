@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 @Tag(name = "미션", description = "미션 관련 API")
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/stores")
+@RequestMapping("/api")
 public class MissionController {
 
     private final MissionService missionService;
@@ -31,9 +31,25 @@ public class MissionController {
             description = "storeId에 해당하는 가게의 미션 리스트를 반환합니다."
     )
     @ApiResponse(responseCode = "200", description = "성공적으로 미션을 조회했습니다.")
-    @GetMapping("/{storeId}/missions")
+    @GetMapping("/stores/{storeId}/missions")
     public ResponseEntity<List<MissionResponseDTO>> getMissionsByStore(@PathVariable Long storeId) {
         List<Mission> missions = missionService.getMissionsByStore(storeId);
+        List<MissionResponseDTO> result = missions.stream()
+                .map(MissionResponseDTO::from)
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(result);
+    }
+
+
+    @Operation(
+            summary = "내가 진행 중인 미션 목록 조회",
+            description = "memberId에 해당하는 회원이 진행 중인 미션 리스트를 반환합니다."
+    )
+    @ApiResponse(responseCode = "200", description = "성공적으로 진행 중인 미션 목록을 조회했습니다.")
+    @GetMapping("/members/{memberId}/missions/ongoing")
+    public ResponseEntity<List<MissionResponseDTO>> getOngoingMissionsByMember(@PathVariable Long memberId) {
+        List<Mission> missions = missionService.getOngoingMissionsByMember(memberId);
         List<MissionResponseDTO> result = missions.stream()
                 .map(MissionResponseDTO::from)
                 .collect(Collectors.toList());
