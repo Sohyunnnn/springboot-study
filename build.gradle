@@ -60,6 +60,11 @@ dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	testImplementation 'org.springframework.security:spring-security-test'
+
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // html 렌더링하기 위한 템플릿 엔진
+
 
 
 }
