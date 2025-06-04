@@ -28,7 +28,9 @@ public enum ErrorStatus implements BaseErrorCode {
     STORE_NOT_FOUND(HttpStatus.NOT_FOUND, "STORE_4001","가게가 없습니다."),
 
 
-    TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4001", "이거는 테스트");
+    TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4001", "이거는 테스트"),
+
+    INVALID_TOKEN(HttpStatus.UNAUTHORIZED, "TOKEN_4001", "유효하지 않은 토큰입니다.");
 
 
     private final HttpStatus httpStatus;
