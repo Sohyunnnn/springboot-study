@@ -34,11 +34,14 @@ public class MemberConverter {
         }
 
         return Member.builder()
+                .name(request.getName())
+                .email(request.getEmail())   // 추가된 코드
+                .password(request.getPassword())   // 추가된 코드
+                .gender(gender)
                 .address(request.getAddress())
                 .specAddress(request.getSpecAddress())
-                .gender(gender)
-                .name(request.getName())
-                .memberPreferList(new ArrayList<>()) //리스트 초기화
+                .role(request.getRole())   // 추가된 코드
+                .memberPreferList(new ArrayList<>())
                 .build();
     }
 }
